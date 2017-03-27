@@ -7,6 +7,7 @@ app.use(express.static('public'));
 app.use(body_parser.json());
  	
 var manager = new Manager();
+manager.set_defaults();
 
 
 app.get('/', function(req, res){
