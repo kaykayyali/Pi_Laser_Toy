@@ -1,0 +1,24 @@
+{
+  "name": "pi_laser_toy",
+  "version": "0.0.1",
+  "description": "Small library to control Pi Laser toy",
+  "main": "index.js",
+  "scripts": {
+    "test": "start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kaykayyali/Pi_Laser_Toy.git"
+  },
+  "author": "Kaysser E Kayyali",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kaykayyali/Pi_Laser_Toy/issues"
+  },
+  "homepage": "https://github.com/kaykayyali/Pi_Laser_Toy#readme",
+  "dependencies": {
+    "async": "^2.2.0",
+    "rpi-gpio": "^0.7.0",
+    "underscore": "^1.8.3"
+  }
+}
