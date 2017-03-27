@@ -6,7 +6,7 @@ $(document).ready(function() {
  
 function reload_img () {
 	var host_name = location.hostname;
- 	mjpeg_img.src = "http://"+host_name+"/cam_pic.php?time=" + new Date().getTime();
+ 	mjpeg_img.src = "http://"+host_name+"/html/cam_pic.php?time=" + new Date().getTime();
 }
 function error_img () {
   setTimeout("mjpeg_img.src = 'cam_pic.php?time=' + new Date().getTime();", 100);
