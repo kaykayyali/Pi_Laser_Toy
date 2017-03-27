@@ -23,7 +23,7 @@ app.get('/center', function(request, response) {
 });
 
 app.post('/joystick_update', function (request, response) {
-  if (!request.body || request.body.x  || request.body.y) {
+  if (!request.body || !request.body.x  || !request.body.y) {
   	return response.sendStatus(400);
   }
   if (request.body && request.body.x && request.body.y) {
