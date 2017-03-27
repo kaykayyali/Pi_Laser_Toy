@@ -5,10 +5,12 @@
 		</title>
 		<link rel="stylesheet" href="css/style.css">
 	</head>
-	<body>
+	<body onload="setTimeout('init();', 100);">
 
 		<div id="overlay">
-			<div id="image_display"></div>
+			<div id="image_display">
+				<img id="mjpeg_dest"  src="./loading.jpg">
+			</div>
 			<div id="container"></div>
 			<div id="position"></div>		
 		</div>

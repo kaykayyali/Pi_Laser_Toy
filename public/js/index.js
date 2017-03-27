@@ -1,7 +1,22 @@
 $(document).ready(function() {
 	init_joystick();
-});
 
+});
+var mjpeg_img;
+ 
+function reload_img () {
+	var host_name = location.hostname;
+ 	mjpeg_img.src = "http://"+host_name+":80/cam_pic.php?time=" + new Date().getTime();
+}
+function error_img () {
+  setTimeout("mjpeg_img.src = 'cam_pic.php?time=' + new Date().getTime();", 100);
+}
+function init() {
+  mjpeg_img = document.getElementById("mjpeg_dest");
+  mjpeg_img.onload = reload_img;
+  mjpeg_img.onerror = error_img;
+  reload_img();
+}
 
 
 function init_joystick() {
