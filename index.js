@@ -7,19 +7,30 @@ app.use(express.static('public'));
 app.use(body_parser.json());
  	
 var manager = new Manager();
-manager.set_defaults();
+var options = {
+	laser: true
+};
+manager.set_defaults(options);
 
 
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/public/index.html');
 });
 
+app.get('/center', function(request, response) {
+	manager.set_defaults();
+	response.sendStatus(200);
+});
+
 app.post('/joystick_update', function (request, response) {
-  if (!request.body) {
+  if (!request.body || request.body.x  || request.body.y) {
   	return response.sendStatus(400);
   }
-  console.log(request.body);
-  response.sendStatus(200);
+  if (request.body && request.body.x && request.body.y) {
+  	  console.log(request.body);
+  	  mananger.update_servos(request.body.x, request.body.y);
+  	  response.sendStatus(200);
+  }
 });
 
 app.listen(3000, function () {

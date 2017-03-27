@@ -30,6 +30,7 @@ function init_joystick() {
 	});
 	joystick.addEventListener('touchEnd', function(){
 		console.log('Touch up');
+		$.get('/center');
 	});
 	setInterval(function(){
 		var delta_x = joystick.deltaX();
