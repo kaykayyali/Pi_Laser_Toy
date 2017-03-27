@@ -43,5 +43,7 @@ app.listen(3000, function () {
 process.on('SIGINT', function () {
   console.log("SIGINT");
   manager.shut_down();
-  process.exit(1);
+  setTimeout(function() {
+  	process.exit(1);
+  }, 5000);
 });
