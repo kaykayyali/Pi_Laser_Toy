@@ -40,3 +40,8 @@ body {
 #mjpeg_dest {
 	width: 100%;
 }
+
+#button_wrap {
+	position: absolute;
+    top: 0;
+}
