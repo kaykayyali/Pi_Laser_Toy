@@ -57,7 +57,11 @@ var Updater = function() {
 
 Updater.prototype.handle_update = function(up, down, left, right) {
 		console.log("Handling Change");
-		var x, y;
+		if (!up && !down && !left && !right) {
+			return;
+		}
+		var x = 0;
+		var y = 0;
 		if (up) {
 			y = -1
 		}
