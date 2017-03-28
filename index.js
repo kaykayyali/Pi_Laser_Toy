@@ -27,6 +27,11 @@ app.get('/random', function(request, response) {
   response.sendStatus(200);
 });
 
+app.get('/stop_random', function(request, response) {
+  manager.stop_random();
+  response.sendStatus(200);
+});
+
 app.post('/joystick_update', function (request, response) {
   if (!request.body) {
   	return response.sendStatus(400);

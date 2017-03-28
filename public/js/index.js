@@ -2,6 +2,16 @@ var mjpeg_img;
 $(document).ready(function() {
 	init_joystick();
 	mjpeg_img = document.getElementById("mjpeg_dest");
+	$('#start_random').on('click', function() {
+		$.get('start_random', function() {
+			console.log("Random Started");
+		});
+	});
+	$('#stop_random').on('click', function() {
+		$.get('stop_random', function() {
+			console.log("Random Stopped");
+		});
+	});
 });
  
 function reload_img () {
