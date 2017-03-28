@@ -12,8 +12,8 @@ function error_img () {
   setTimeout("mjpeg_img.src = 'cam_pic.php?time=' + new Date().getTime();", 500);
 }
 function init() {
-  mjpeg_img.onload = debounce(reload_img, 250);
-  mjpeg_img.onerror = debounce(error_img, 250);
+  mjpeg_img.onload = _.debounce(reload_img, 250);
+  mjpeg_img.onerror = _.debounce(error_img, 250);
   reload_img();
 }
 
@@ -55,7 +55,7 @@ var Updater = function() {
 	this.end_point = 'joystick_update';
 };
 
-Updater.prototype.handle_update = debounce(function(delta_x, delta_y) {
+Updater.prototype.handle_update = _.debounce(function(delta_x, delta_y) {
 	if (delta_x != this.last_x || delta_y != this.last_y) {
 		console.log("Handling Change");
 		this.last_x = delta_x;
