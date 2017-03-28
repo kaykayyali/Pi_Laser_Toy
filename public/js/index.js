@@ -9,7 +9,7 @@ function reload_img () {
  	mjpeg_img.src = "http://"+host_name+"/html/cam_pic.php?time=" + new Date().getTime();
 }
 function error_img () {
-  setTimeout("mjpeg_img.src = 'cam_pic.php?time=' + new Date().getTime();", 100);
+  setTimeout("mjpeg_img.src = 'cam_pic.php?time=' + new Date().getTime();", 500);
 }
 function init() {
   mjpeg_img.onload = reload_img;
