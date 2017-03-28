@@ -44,7 +44,7 @@ function init_joystick() {
 			+ (joystick.left()	? ' left'	: '')
 			+ (joystick.down()	? ' down' 	: '')	
 			// console.log(update)
-	}, 1/20 * 1000);
+	}, 1/5 * 1000);
 };
 
 
