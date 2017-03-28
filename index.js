@@ -27,7 +27,7 @@ app.post('/joystick_update', function (request, response) {
   	return response.sendStatus(400);
   }
   console.log(request.body);
-  if (request.body && request.body.x && request.body.y) {
+  if (request.body) {
   	  manager.update_servos(request.body.x, request.body.y);
   	  response.sendStatus(200);
   }
