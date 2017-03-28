@@ -55,7 +55,7 @@ var Updater = function() {
 	this.end_point = 'joystick_update';
 };
 
-Updater.prototype.handle_update = function(delta_x, delta_y) {
+Updater.prototype.handle_update = debounce(function(delta_x, delta_y) {
 	if (delta_x != this.last_x || delta_y != this.last_y) {
 		console.log("Handling Change");
 		this.last_x = delta_x;
@@ -78,4 +78,4 @@ Updater.prototype.handle_update = function(delta_x, delta_y) {
 		console.log("Not Handling");
 		return;
 	}
-};
+}, 250);
