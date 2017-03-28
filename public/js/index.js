@@ -12,8 +12,8 @@ function error_img () {
   setTimeout("mjpeg_img.src = 'cam_pic.php?time=' + new Date().getTime();", 500);
 }
 function init() {
-  mjpeg_img.onload = reload_img;
-  mjpeg_img.onerror = error_img;
+  mjpeg_img.onload = debounce(reload_img, 250);
+  mjpeg_img.onerror = debounce(error_img, 250);
   reload_img();
 }
 

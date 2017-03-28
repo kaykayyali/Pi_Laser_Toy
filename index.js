@@ -31,6 +31,9 @@ app.post('/joystick_update', function (request, response) {
   	  manager.update_servos(request.body.x, request.body.y);
   	  response.sendStatus(200);
   }
+  else {
+    response.sendStatus(400);
+  }
 });
 
 app.listen(3000, function () {
