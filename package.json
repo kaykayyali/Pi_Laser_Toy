@@ -4,7 +4,7 @@
   "description": "Small library to control Pi Laser toy",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "sudo node index.js"
   },
   "repository": {
     "type": "git",
