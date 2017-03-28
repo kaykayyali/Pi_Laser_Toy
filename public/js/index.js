@@ -35,7 +35,7 @@ function init_joystick() {
 	setInterval(function(){
 		var delta_x = joystick.deltaX();
 		var delta_y = joystick.deltaY();
-		Updater.handle_update(delta_x, delta_y);
+		Updater.handle_update(joystick.up(), joystick.down(), joystick.left(), joystick.right());
 		var update 	= ''
 			+ ' dx:'+delta_x
 			+ ' dy:'+delta_y
@@ -55,14 +55,24 @@ var Updater = function() {
 	this.end_point = 'joystick_update';
 };
 
-Updater.prototype.handle_update = function(delta_x, delta_y) {
-	if (delta_x != this.last_x || delta_y != this.last_y) {
+Updater.prototype.handle_update = function(up, down, left, right) {
 		console.log("Handling Change");
-		this.last_x = delta_x;
-		this.last_y = delta_y;
+		var x, y;
+		if (up) {
+			y = -1
+		}
+		else if (down) {
+			y = 1
+		}
+		if (left) {
+			x = -1
+		}
+		else if (right) {
+			x = 1
+		}
 		var new_update = {
-			x: this.last_x,
-			y: this.last_y
+			x: x,
+			y: y
 		}	
 		$.ajax({
 			type: "POST",
@@ -71,11 +81,4 @@ Updater.prototype.handle_update = function(delta_x, delta_y) {
 			contentType: 'application/json; charset=utf-8',
 			dataType: 'json'
 		});
-		// $.post(this.end_point, new_update);
-	}
-	else {
-		// No change
-		console.log("Not Handling");
-		return;
-	}
 };
