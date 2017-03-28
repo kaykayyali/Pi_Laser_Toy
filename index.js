@@ -22,7 +22,7 @@ app.get('/center', function(request, response) {
 	response.sendStatus(200);
 });
 
-app.get('/random', function(request, response) {
+app.get('/start_random', function(request, response) {
   manager.start_random();
   response.sendStatus(200);
 });
